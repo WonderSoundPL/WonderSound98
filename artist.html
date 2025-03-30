@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil Artysty</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1 id="artist-name">Profil Artysty</h1>
+    </header>
+    <main>
+        <h2>🎧 Łączna liczba odtworzeń: <span id="total-streams">0</span></h2>
+        <h2>Piosenki</h2>
+        <ul id="artist-songs"></ul>
+    </main>
+
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const artistName = params.get("name");
+        document.getElementById("artist-name").textContent = artistName;
+
+        let songs = JSON.parse(localStorage.getItem("songs")) || [];
+        let artistSongs = songs.filter(song => song.artist === artistName);
+
+        let totalStreams = artistSongs.reduce((sum, song) => sum + song.totalStreams, 0);
+        document.getElementById("total-streams").textContent = totalStreams.toLocaleString();
+
+        let songList = document.getElementById("artist-songs");
+        artistSongs.forEach(song => {
+            let li = document.createElement("li");
+            li.textContent = `${song.title} - ${song.totalStreams.toLocaleString()} odtworzeń`;
+            songList.appendChild(li);
+        });
+    </script>
+</body>
+</html>
