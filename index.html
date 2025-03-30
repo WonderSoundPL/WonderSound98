@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WonderSound</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>🎵 WonderSound 🎶</h1>
+    </header>
+
+    <main>
+        <section>
+            <h2>Dodaj Artystę</h2>
+            <form id="add-artist-form">
+                <input type="text" id="artist-name" placeholder="Nazwa artysty" required>
+                <button type="submit">Dodaj</button>
+            </form>
+        </section>
+
+        <section>
+            <h2>Dodaj Piosenkę</h2>
+            <form id="add-song-form">
+                <input type="text" id="song-title" placeholder="Tytuł piosenki" required>
+                <input type="text" id="song-artist" placeholder="Artysta" required>
+                <button type="submit">Dodaj</button>
+            </form>
+        </section>
+
+        <section>
+            <h2>🌍 Global 100</h2>
+            <ul id="global-ranking"></ul>
+        </section>
+
+        <section>
+            <h2>🏆 Rankingi Krajowe</h2>
+            <ul id="country-rankings"></ul>
+        </section>
+
+        <section>
+            <h2>👨‍🎤 Artyści</h2>
+            <ul id="artist-list"></ul>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
